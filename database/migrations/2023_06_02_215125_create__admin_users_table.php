@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admin_users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email');
+            $table->string('email', 250)->unique();
             $table->string('password');
             $table->string('role');
             $table->timestamp('last_used_at')->nullable();
