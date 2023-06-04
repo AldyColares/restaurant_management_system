@@ -23,6 +23,8 @@ return new class extends Migration
             $table->foreign('table_id')->references('id')->on('tables');
             $table->date('register_table_begin');
             $table->date('register_table_end');
+            $table->timestamps();
+
 
         });
     }

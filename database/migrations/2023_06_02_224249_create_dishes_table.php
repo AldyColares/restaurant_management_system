@@ -24,9 +24,8 @@ return new class extends Migration
             $table->foreign('dishes_id')->references('id')->on('dishes');
             $table->unsignedBigInteger('products_inventory_id');
             $table->foreign('products_inventory_id')->references('id')->on('products_inventory');
-
+            $table->timestamps();
         });
-
     }
 
     /**
@@ -36,6 +35,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('dishes');
         Schema::dropIfExists('products_inventory');
-
     }
 };
