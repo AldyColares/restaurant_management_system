@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('ingredients_dishes', function (Blueprint $table) {
+        Schema::create('dishes_products_inventory', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('dishes_id');
             $table->foreign('dishes_id')->references('id')->on('dishes');
@@ -33,7 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('dishes_products_inventory');
         Schema::dropIfExists('dishes');
-        Schema::dropIfExists('products_inventory');
     }
 };
