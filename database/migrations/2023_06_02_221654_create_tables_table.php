@@ -19,13 +19,11 @@ return new class extends Migration
 
         Schema::create('reservation_tables', function (Blueprint $table){
             $table->increments('id');
-            $table->unsignedBigInteger('table_id');
-            $table->foreign('table_id')->references('id')->on('tables');
+            $table->unsignedBigInteger('tables_id');
+            $table->foreign('tables_id')->references('id')->on('tables');
             $table->date('register_table_begin');
             $table->date('register_table_end');
             $table->timestamps();
-
-
         });
     }
 

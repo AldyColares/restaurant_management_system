@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admin_users');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email', 250)->unique();
             $table->string('password');
             $table->float('salary', 10, 2);
+            $table->string('position');
             $table->string('city');
             $table->string('street');
             $table->integer('number');
@@ -26,6 +29,7 @@ return new class extends Migration
             $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
