@@ -20,6 +20,15 @@ return new class extends Migration
             $table->string('role');
             $table->timestamp('last_used_at')->nullable();
         });
+
+        Schema::create('admin_users_employees', function (Blueprint $table){
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admin_users');
+            $table->unsignedBigInteger('employee');
+            $table->foreign('employee')->references('id')->on('employee');
+            $table->timestamps();
+        });
     }
 
     /**

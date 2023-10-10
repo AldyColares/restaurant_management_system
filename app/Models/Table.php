@@ -12,7 +12,7 @@ class Table extends Model
     use HasFactory;
 
      /**
-     * Get the comments for the blog post.
+     *
      */
     public function reservationTables(): HasMany
     {
