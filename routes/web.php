@@ -30,5 +30,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/send-dishes', [SendDishes::class, 'send'])->name('send');
+Route::get('/test-view', [SendDishes::class, 'test'])->name('test');
 
 require __DIR__.'/auth.php';
