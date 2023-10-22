@@ -8,14 +8,20 @@
 
     <title>App Name - @yield('title')</title>
 
-    @vite('resources/css/app.css')
+      <!-- Scripts -->
+      @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body>
+
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
 
+    <div>
+        {{ $slot }}
+    </div>
 
 </body>
 

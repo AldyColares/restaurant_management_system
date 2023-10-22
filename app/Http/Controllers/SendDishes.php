@@ -16,6 +16,6 @@ class SendDishes extends Controller
 
     public function test(Request $request): View
     {
-        return view('layouts.admin');
+        return view('components.employee.check-on');
     }
 }
