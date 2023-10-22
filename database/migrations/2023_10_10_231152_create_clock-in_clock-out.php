@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('to-punch-the-clock', function (Blueprint $table) {
+        Schema::create('toPunchTheClock', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreign('employee_id')->references('id')->on('employee');
             $table->date('clock-in');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('to-punch-the-clock');
+        Schema::dropIfExists('toPunchTheClock');
     }
 };
