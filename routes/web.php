@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SendDishes;
+use App\Http\Controllers\ToPunchTheClockController\ToPunchTheClockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/send-dishes', [SendDishes::class, 'send'])->name('send');
 Route::get('/test-view', [SendDishes::class, 'test'])->name('test');
+Route::get('/checkOn', [ToPunchTheClockController::class, 'readCheckOn'])->name('checkOn.employee');
 
 require __DIR__.'/auth.php';

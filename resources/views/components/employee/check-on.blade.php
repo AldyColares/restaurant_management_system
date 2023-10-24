@@ -1,4 +1,4 @@
 <x-employee.employee>
-    fksjfçlskjfss
+    <p>{{ $user->id }}</p>
 
 </x-employee.employee>
