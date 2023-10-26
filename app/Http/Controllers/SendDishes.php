@@ -17,7 +17,7 @@ class SendDishes extends Controller
     public function test(Request $request): View
     {
 
-        var_dump(date("Y-m-d H:i:s"));
+        // dd((date("Y-m-d H:i:s")));
         return view('components.employee.check-on');
     }
 }
