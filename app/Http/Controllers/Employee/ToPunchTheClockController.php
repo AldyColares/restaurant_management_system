@@ -20,6 +20,7 @@ class ToPunchTheClockController extends Controller
                 'nameEmployee' => $user->name
             ]);
         }
+        return abort(401);
     }
 
     public function readCheckOn(Request $request): View
@@ -30,8 +31,7 @@ class ToPunchTheClockController extends Controller
             return view('components.employee.check-on', [
                 'checkOn' => ToPunchTheClock::latest()->first(),
             ]);
-        } else {
-            return abort(401);
         }
+        return abort(401);
     }
 }

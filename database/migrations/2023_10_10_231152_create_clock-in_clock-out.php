@@ -11,11 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('toPunchTheClock', function (Blueprint $table) {
+        Schema::create('toPunchTheClocks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('employee_id')->references('id')->on('employee');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->date('clock-in');
             $table->date('clock-out');
+        });
+
+        Schema::create('toPunchTheClock_employee', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('toPunchTheClock_id');
+            $table->foreign('toPunchTheClock_id')->references('id')->on('toPunchTheClocks');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('toPunchTheClock_employee');
         Schema::dropIfExists('toPunchTheClock');
     }
 };
